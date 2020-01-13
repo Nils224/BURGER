@@ -9,11 +9,11 @@ const burger = {
   },
   
   insertOne: function(objCriteria, cb) {
-    orm.insertOne("burger", cols, vals, function(res) {
+    orm.insertOne("burger", objCriteria, function(res) {
       cb(res);
     });
   },
-  
+
   updateOne: function(objColVals, condition, cb) {
     orm.updateOne("burger", objColVals, condition, function(res) {
       cb(res);
