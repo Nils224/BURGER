@@ -1,10 +1,5 @@
 const connection = require("./connection.js");
 
-selectAll()
-insertOne()
-updateOne()
-
-
 const orm = {
     selectAll: function(table, cb) {
       const queryString = "SELECT * FROM ??";
