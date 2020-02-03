@@ -1,19 +1,21 @@
-INSERT INTO burgers
-	(burger_name, devoured) 
-VALUES 
-	('Big Mac Burger', FALSE);
-    
-INSERT INTO burgers
-	(burger_name, devoured)
-VALUES
-	('Veggie Burger', FALSE);
+USE burger_db;
 
 INSERT INTO burgers
-	(burger_name, devoured)
-VALUES
-    ('Chicken Burger', FALSE);
+	(burger_name) 
+VALUES 
+	('Big Mac Burger');
     
 INSERT INTO burgers
-	(burger_name, devoured)
+	(burger_name)
 VALUES
-	('Heart Attack Burger', FALSE);
+	('Veggie Burger');
+
+INSERT INTO burgers
+	(burger_name)
+VALUES
+    ('Chicken Burger');
+    
+INSERT INTO burgers
+	(burger_name)
+VALUES
+	('Heart Attack Burger');

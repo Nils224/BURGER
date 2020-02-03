@@ -3,20 +3,32 @@ const orm = require("../config/orm.js");
 
 const burger = {
   selectAll: function(cb) {
-    orm.selectAll("burger", function(res) {
-      cb(res);
+    orm.selectAll("burgers", function(result) {
+      cb(result);
     });
   },
   
-  insertOne: function(objCriteria, cb) {
-    orm.insertOne("burger", objCriteria, function(res) {
-      cb(res);
+  insertOne: function(burger_name, cb) {
+    orm.insertOne("burgers", burger_name, function(result) {
+      cb(result);
     });
   },
 
-  updateOne: function(objColVals, condition, cb) {
-    orm.updateOne("burger", objColVals, condition, function(res) {
-      cb(res);
+  updateOne: function(id, devoured, cb) {
+    orm.updateOne("burgers", id, devoured, function(result) {
+      cb(result);
+    });
+  },
+
+  updateAll: function(devoured, cb) {
+    orm.updateAll("burgers", devoured, function(result) {
+      cb(result);
+    });
+  },
+
+  deleteOne: function(id, cb) {
+    orm.deleteOne("burgers", id, function(result) {
+      cb(result);
     });
   }
 };

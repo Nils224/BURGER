@@ -1,0 +1,51 @@
+@charset 'utf-8';
+
+body {
+    background-color: #751100;
+}
+h2 {
+    color: white;
+}
+a {
+    color: #c13925;
+}
+a:hover {
+    color: #852315;
+}
+.jumbotron {
+    background-color: #8a1400;
+}
+.row > div {
+    margin-bottom: 1.5em;
+}
+.btn-primary {
+    background-color: #c13925;
+    border-color: #c13925;
+}
+.btn-primary:hover,
+.btn-primary:active,
+.btn-primary:not(:disabled):not(.disabled):active,
+.btn-primary:focus {
+    background-color: #9e2b19;
+    border-color: #9e2b19;
+}
+.add-burger .input-group {
+    max-width: 600px;
+}
+input#burger_name::placeholder {
+    opacity: 1;
+    transition: opacity 0.25s;
+}
+input#burger_name:focus::placeholder {
+    opacity: 0;
+}
+.remove {
+    position: absolute;
+    top: 50%;
+    right: 16px;
+    transform: translateY(-50%);
+    opacity: 0;
+}
+.card:hover .remove {
+    opacity: 1;
+}
