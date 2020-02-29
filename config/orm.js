@@ -37,7 +37,7 @@ const orm = {
   selectAll: function(table, cb) {
     const queryString = "SELECT * FROM " + table + ";";
 
-    connection.query(queryString, [table], function(err, result) {
+    connection.query(queryString, function(err, result) {
       if (err) {
         throw err;
       }
@@ -46,20 +46,36 @@ const orm = {
     });
   },
 
-  insertOne: function(table, burger_name, cb) {
-    const queryString = "INSERT INTO ?? (burger_name) VALUES (?)";
+  //trialling two methods of inserting data
 
-    connection.query(queryString, [table, burger_name], function(err, result) {
-      if (err) throw err;
+  insertOne: function(table, cols, vals, cb) {
+    const queryString = "INSERT INTO " + table;
+
+    queryString += " (";
+    queryString += cols.toString();
+    queryString += ") ";
+    queryString += "VALUES (";
+    queryString += printQuestionMarks(vals.length);
+    queryString += ") ";
+
+    connection.query(queryString, vals, function(err, result) {
+      if (err) {
+        throw err;
+      }
       //console.log(result);
       cb(result);
     });
   },
   
-  updateOne: function(table, id, devoured, cb) {
-    const queryString = "UPDATE ?? SET devoured = ? WHERE id= ?";
+  updateOne: function(table, objColVals, condition, cb) {
+    const queryString = "UPDATE " + table;
 
-    connection.query(queryString, [table, devoured, id], function(err, result) {
+    queryString += " SET ";
+    queryString += objToSql(objColVals);
+    queryString += " WHERE ";
+    queryString += condition;
+
+    connection.query(queryString, function(err, result) {
       if (err) {
         throw err;
       }
@@ -68,16 +84,16 @@ const orm = {
     });
   },
 
-  updateAll: function(table, devoured, cb) {
-    const queryString = "UPDATE ?? SET devoured= ?";
-    connection.query(queryString, [table, devoured], function(err, result) {
-      if (err) {
-        throw err;
-      }
-      console.log(result);
-      cb(result);
-    });
-  },
+  // updateAll: function(table, devoured, cb) {
+  //   const queryString = "UPDATE ?? SET devoured= ?";
+  //   connection.query(queryString, [table, devoured], function(err, result) {
+  //     if (err) {
+  //       throw err;
+  //     }
+  //     console.log(result);
+  //     cb(result);
+  //   });
+  // },
 
   deleteOne: function(table, id, cb) {
     // const queryString = "DELETE FROM ?? WHERE id= ?";
