@@ -6,16 +6,17 @@ const burger = require("../models/burger");
 //Routes
 router.get("/", function(req, res) {
   burger.selectAll(function(data) {
-    const hbsObject = { burgers: data };
-    
+    const hbsObject = { 
+      burgers: data 
+    };
     res.render("index", hbsObject);
   });
 });
 
 router.post("/api/burgers", function(req, res) {
-  burger.insertOne([req.body.burger_name], function(result) {
+  burger.insertOne(["burger_name"], [req.body.name], function(result) {
     // Send back the ID of the new quote
-    res.json(result.insertedId);
+    res.json({ id: result.insertedId });
   });
 });
 
@@ -26,7 +27,7 @@ router.put("/api/burgers/:id", function(req, res) {
   burger.updateOne({
     devoured: true
   }, condition,  function(result) {
-    if (result.affectedRows == 0) {
+    if (result.changedRows == 0) {
       // If no rows were changed, then the ID must not exist, so 404
       return res.status(404).end();
     } else {
@@ -49,7 +50,7 @@ router.put("/api/burgers/:id", function(req, res) {
 router.delete("/api/burgers/:id", function(req, res) {
   let condition = "id = " + req.params.id;
   burger.delete(condition, function(result) {
-    if (result.affectedRows == 0) {
+    if (result.changedRows == 0) {
       // If no rows were changed, then the ID must not exist, so 404
       return res.status(404).end();
     } else {

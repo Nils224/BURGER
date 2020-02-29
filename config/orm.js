@@ -46,8 +46,6 @@ const orm = {
     });
   },
 
-  //trialling two methods of inserting data
-
   insertOne: function(table, cols, vals, cb) {
     const queryString = "INSERT INTO " + table;
 
