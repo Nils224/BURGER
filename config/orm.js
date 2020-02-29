@@ -80,8 +80,13 @@ const orm = {
   },
 
   deleteOne: function(table, id, cb) {
-    const queryString = "DELETE FROM ?? WHERE id= ?";
-    connection.query(queryString, [table, id], function(err, result) {
+    // const queryString = "DELETE FROM ?? WHERE id= ?";
+    let queryString = "DELETE FROM " + table;
+    queryString += " WHERE ";
+    queryString += id;
+
+    //, [table, id]
+    connection.query(queryString, function(err, result) {
       if (err) {
         throw err;
       }
