@@ -4,4 +4,4 @@ A simple app where you can add burgers to a list and devour those burgers with a
 
 This app runs on `express`, `express-handlebars`, and `mysql` Node.js modules.
 
-[Live Demo] (https://burger-eat-me.herokuapp.com/)
+[Live Demo](https://burger-eat-me.herokuapp.com/)
