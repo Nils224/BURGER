@@ -1,44 +1,66 @@
 @charset 'utf-8';
 
 body {
-    background-color: #751100;
+    background-color: #007575;
 }
+
 h2 {
     color: white;
 }
+
 a {
-    color: #c13925;
+    color: #259dc1;
 }
+
 a:hover {
     color: #852315;
 }
+
 .jumbotron {
-    background-color: #8a1400;
+    background-color: #007a8a;
 }
+
 .row > div {
     margin-bottom: 1.5em;
 }
-.btn-primary {
-    background-color: #c13925;
-    border-color: #c13925;
+
+.col-sm {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
 }
+
+.card.mt-3 {
+    width: 50%;
+}
+
+.btn-primary {
+    background-color: #257bc1;
+    border-color: #257bc1;
+}
+
 .btn-primary:hover,
 .btn-primary:active,
 .btn-primary:not(:disabled):not(.disabled):active,
 .btn-primary:focus {
-    background-color: #9e2b19;
-    border-color: #9e2b19;
+    background-color: #199e50;
+    border-color: #199e24;
 }
+
 .add-burger .input-group {
     max-width: 600px;
 }
+
 input#burger_name::placeholder {
     opacity: 1;
     transition: opacity 0.25s;
 }
+
 input#burger_name:focus::placeholder {
     opacity: 0;
 }
+
 .remove {
     position: absolute;
     top: 50%;
@@ -46,6 +68,7 @@ input#burger_name:focus::placeholder {
     transform: translateY(-50%);
     opacity: 0;
 }
+
 .card:hover .remove {
     opacity: 1;
 }
